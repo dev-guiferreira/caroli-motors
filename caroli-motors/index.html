@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Caroli Motors | Motos selecionadas e atendimento pelo WhatsApp</title>
+  <meta name="description" content="Conheça as motos da Caroli Motors, consulte financiamento, avalie sua moto na troca e fale direto com a loja pelo WhatsApp.">
+  <meta name="theme-color" content="#0e0f11">
+  <link rel="icon" type="image/svg+xml" href="assets/images/aaaaaaaaaa.png">
+
+  <!-- Open Graph (adicione og:image e og:url quando houver domínio e imagem definitivos) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Caroli Motors">
+  <meta property="og:title" content="Caroli Motors | Motos selecionadas e atendimento pelo WhatsApp">
+  <meta property="og:description" content="Conheça as motos da Caroli Motors e fale direto com a loja pelo WhatsApp.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- A. CABEÇALHO -->
+  <header class="site-header" id="topo">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Caroli Motors - ir para o início">
+        <img class="brand__logo" id="brandLogo" alt="Caroli Motors" hidden>
+        <span class="brand__text" id="brandText">CAROLI <strong>MOTORS</strong></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="primaryNav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#veiculos">Motos</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li class="nav__cta">
+            <a class="btn btn--whatsapp btn--sm" data-wa="general" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Fale pelo WhatsApp
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- B. HERO -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <img class="hero__bg" src="assets/images/hero.svg" alt="" width="1600" height="900" fetchpriority="high">
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="eyebrow">Caroli Motors</p>
+        <h1 id="heroTitle">Encontre a sua próxima moto com atendimento direto e transparente</h1>
+        <p class="hero__sub">Conheça as opções da loja, tire dúvidas e converse com um consultor pelo WhatsApp, sem complicação.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#veiculos">Ver motos disponíveis</a>
+          <a class="btn btn--outline" data-wa="general" href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar com um consultor
+          </a>
+        </div>
+        <ul class="hero__chips" aria-label="Como funciona">
+          <li><i class="fa-solid fa-comments" aria-hidden="true"></i> Contato direto pelo WhatsApp</li>
+          <li><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Catálogo com filtros e busca</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- C. VEÍCULOS -->
+    <section class="section" id="veiculos" aria-labelledby="veiculosTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Estoque</p>
+          <h2 id="veiculosTitle">Motos em destaque</h2>
+          <p>Use os filtros para encontrar a moto ideal e chame a loja para confirmar disponibilidade.</p>
+        </header>
+
+        <div class="demo-notice" id="demoNotice" role="note" hidden>
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span><strong>Dados de demonstração:</strong> as motos abaixo são exemplos de desenvolvimento. Substitua-os em <code>js/vehicles.js</code> antes de publicar.</span>
+        </div>
+
+        <form class="filters reveal" id="filters" role="search" aria-label="Filtros de motos" novalidate>
+          <div class="field field--search">
+            <label for="fSearch">Buscar por nome ou modelo</label>
+            <input id="fSearch" name="search" type="search" placeholder="Ex.: street, trail, scooter, modelo" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fBrand">Marca</label>
+            <select id="fBrand" name="brand"><option value="">Todas</option></select>
+          </div>
+          <div class="field">
+            <label for="fPrice">Faixa de preço</label>
+            <select id="fPrice" name="price">
+              <option value="">Qualquer</option>
+              <option value="0-10000">Até R$ 10 mil</option>
+              <option value="10000-20000">R$ 10 mil a R$ 20 mil</option>
+              <option value="20000-35000">R$ 20 mil a R$ 35 mil</option>
+              <option value="35000-">Acima de R$ 35 mil</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fYear">Ano</label>
+            <select id="fYear" name="year"><option value="">Todos</option></select>
+          </div>
+          <div class="field">
+            <label for="fCategory">Categoria</label>
+            <select id="fCategory" name="category"><option value="">Todas</option></select>
+          </div>
+          <div class="field">
+            <label for="fTransmission">Câmbio</label>
+            <select id="fTransmission" name="transmission"><option value="">Todos</option></select>
+          </div>
+          <div class="field">
+            <label for="fSort">Ordenar por</label>
+            <select id="fSort" name="sort">
+              <option value="default">Padrão</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+              <option value="year-desc">Mais novos</option>
+              <option value="year-asc">Mais antigos</option>
+            </select>
+          </div>
+          <div class="field field--actions">
+            <button class="btn btn--ghost" type="button" id="clearFilters">Limpar filtros</button>
+          </div>
+        </form>
+
+        
+        <section class="estoque-section" id="estoque">
+          <div class="estoque-header">
+            <span class="estoque-tag">CAROLI MOTORS</span>
+            <h2>Encontre sua próxima moto</h2>
+            <p>Qualidade, procedência e excelentes oportunidades.</p>
+          </div>
+
+          <div class="carousel-wrapper" id="vehicleCarousel">
+            <button class="carousel-btn prev" id="carouselPrev"
+              aria-label="Moto anterior">&#10094;</button>
+
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="vehicleCarouselTrack"></div>
+            </div>
+
+            <button class="carousel-btn next" id="carouselNext"
+              aria-label="Próxima moto">&#10095;</button>
+          </div>
+
+          <div class="carousel-footer">
+            <div class="carousel-dots" id="carouselDots"></div>
+            <span class="carousel-counter" id="carouselCounter"></span>
+          </div>
+        </section>
+
+
+        <p class="results-count" id="resultsCount" aria-live="polite"></p>
+
+        <div class="vehicle-grid" id="vehicleGrid"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <i class="fa-solid fa-car-burst" aria-hidden="true"></i>
+          <h3>Nenhuma moto encontrada</h3>
+          <p>Tente remover alguns filtros ou fale com a loja: podemos ter outras opções.</p>
+          <div class="empty-state__actions">
+            <button class="btn btn--ghost" type="button" id="emptyClear">Limpar filtros</button>
+            <a class="btn btn--whatsapp" data-wa="general" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Perguntar à loja
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D. DIFERENCIAIS -->
+    <section class="section section--alt" id="diferenciais" aria-labelledby="difTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Por que a Caroli Motors</p>
+          <h2 id="difTitle">Diferenciais</h2>
+          <p class="placeholder-note">Textos de apoio: revise e confirme com a loja antes de publicar.</p>
+        </header>
+        <ul class="features">
+          <li class="feature reveal">
+            <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            <h3>Atendimento personalizado</h3>
+            <p>Conversa direta para entender o que você procura.</p>
+          </li>
+          <li class="feature reveal">
+            <i class="fa-solid fa-car-side" aria-hidden="true"></i>
+            <h3>Motos selecionadas</h3>
+            <p>Opções escolhidas pela equipe para o catálogo.</p>
+          </li>
+          <li class="feature reveal">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            <h3>Transparência na negociação</h3>
+            <p>Informações claras antes de fechar qualquer negócio.</p>
+          </li>
+          <li class="feature reveal">
+            <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+            <h3>Apoio na compra</h3>
+            <p>Orientação durante as etapas do processo.</p>
+          </li>
+          <li class="feature reveal">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <h3>Facilidade de contato</h3>
+            <p>Fale pelo WhatsApp e tire dúvidas rapidamente.</p>
+          </li>
+          <li class="feature reveal">
+            <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+            <h3>Suporte comercial</h3>
+            <p>Equipe disponível para ajudar do primeiro contato à entrega.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- E. SOBRE -->
+    <section class="section" id="sobre" aria-labelledby="sobreTitle">
+      <div class="container about">
+        <div class="about__media reveal">
+          <img src="assets/images/local_caroli.png" alt="Espaço reservado para foto da loja ou da equipe da Caroli Motors" width="800" height="600" loading="lazy">
+        </div>
+        <div class="about__text reveal">
+          <p class="eyebrow">Sobre nós</p>
+          <h2 id="sobreTitle">Conheça a Caroli Motors</h2>
+          <p>A Caroli Motors é uma loja de motos que atende clientes interessados em comprar, financiar ou trocar sua moto. Acompanhe as novidades e as motos no perfil oficial da loja no Instagram.</p>
+          <div class="about__actions">
+            <a class="btn btn--outline" id="aboutInstagram" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i> Ver o Instagram
+            </a>
+            <a class="btn btn--whatsapp" data-wa="general" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Entrar em contato
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- F. FINANCIAMENTO E TROCA -->
+    <section class="section section--alt" id="financiamento" aria-labelledby="finTitle">
+      <div class="container finance">
+        <div class="finance__intro reveal">
+          <p class="eyebrow">Financiamento e troca</p>
+          <h2 id="finTitle">Quer financiar ou dar sua moto usada na troca?</h2>
+          <p>Conte o que você procura e a equipe retorna com as condições disponíveis. Nenhuma análise de crédito é feita neste site e as condições dependem de avaliação da loja e das instituições financeiras.</p>
+          <div class="finance__buttons">
+            <a class="btn btn--primary" data-wa="financing" href="#" target="_blank" rel="noopener noreferrer">Consultar condições</a>
+            <a class="btn btn--outline" data-wa="trade" href="#" target="_blank" rel="noopener noreferrer">Quero avaliar minha moto</a>
+          </div>
+        </div>
+
+        <form class="card form reveal" id="interestForm" novalidate aria-labelledby="formTitle">
+          <h3 id="formTitle">Envie seu interesse</h3>
+
+          <fieldset class="field">
+            <legend>Tenho interesse em</legend>
+            <div class="radio-group">
+              <label><input type="radio" name="interest" value="financing" checked> Financiamento</label>
+              <label><input type="radio" name="interest" value="trade"> Avaliar minha troca</label>
+              <label><input type="radio" name="interest" value="both"> Os dois</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="name">Nome *</label>
+            <input id="name" name="name" type="text" maxlength="80" autocomplete="name" required aria-describedby="nameError">
+            <span class="field__error" id="nameError" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="phone">Telefone com DDD *</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="(11) 99999-9999" required aria-describedby="phoneError">
+            <span class="field__error" id="phoneError" role="alert"></span>
+          </div>
+          <div class="field" id="wantedField">
+            <label for="wanted">Moto desejada *</label>
+            <input id="wanted" name="wanted" type="text" maxlength="100" placeholder="Marca, modelo ou tipo de moto" aria-describedby="wantedError">
+            <span class="field__error" id="wantedError" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="downPayment">Valor aproximado de entrada (opcional)</label>
+            <input id="downPayment" name="downPayment" type="text" maxlength="30" placeholder="Ex.: R$ 15.000">
+          </div>
+          <div class="field" id="tradeField">
+            <label for="tradeVehicle">Moto usada para troca (opcional)</label>
+            <input id="tradeVehicle" name="tradeVehicle" type="text" maxlength="100" placeholder="Marca, modelo, ano" aria-describedby="tradeError">
+            <span class="field__error" id="tradeError" role="alert"></span>
+          </div>
+
+          <button class="btn btn--whatsapp btn--block" type="submit">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Continuar no WhatsApp
+          </button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="privacy-note">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            Este site não possui servidor e não armazena seus dados. Ao enviar, o WhatsApp abrirá com uma mensagem preenchida, e só será enviada se você confirmar. Não informe CPF, documentos ou dados bancários.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- G. AVALIAÇÕES -->
+    <section class="section" id="avaliacoes" aria-labelledby="avTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Clientes</p>
+          <h2 id="avTitle">Quem já levou a moto pra casa</h2>
+          <p>Clientes da Caroli Motors na entrega da sua nova moto.</p>
+        </header>
+
+        <!-- Carrossel automático: as fotos vêm de js/clients.js -->
+        <div class="clients reveal" id="clients" role="region" aria-roledescription="carrossel" aria-label="Clientes da Caroli Motors com suas motos" hidden>
+          <div class="clients__track" id="clientsTrack" tabindex="0"></div>
+          <div class="clients__controls">
+            <button class="icon-btn" type="button" id="clientsPrev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="icon-btn" type="button" id="clientsPlay" aria-label="Pausar rotação automática"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+            <button class="icon-btn" type="button" id="clientsNext" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+        <div class="reviews" id="reviewsWrap" hidden>
+          <div class="reviews__controls">
+            <button class="icon-btn" type="button" id="reviewPrev" aria-label="Avaliação anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="icon-btn" type="button" id="reviewNext" aria-label="Próxima avaliação"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+          <div class="reviews__track" id="reviewsTrack" tabindex="0" aria-label="Avaliações de clientes"></div>
+        </div>
+
+        <div class="card reviews__empty reveal" id="reviewsEmpty">
+          <i class="fa-regular fa-comments" aria-hidden="true"></i>
+          <h3>Veja o que dizem sobre a loja</h3>
+         <p>Consulte as opiniões e o histórico de publicações no perfil oficial da Caroli Motors.</p>
+
+          <a
+    class="btn btn--outline"
+    id="reviewsInstagram"
+    href="https://www.instagram.com/caroli_motors/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    Abrir o Instagram
+  </a>
+</div>
+    </section>
+
+    <!-- H. LOCALIZAÇÃO E CONTATO -->
+    <section class="section section--alt" id="localizacao" aria-labelledby="locTitle">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Visite a loja</p>
+          <h2 id="locTitle">Localização e contato</h2>
+        </header>
+
+        <div class="contact-grid" id="contato">
+          <ul class="card contact-list reveal">
+            <li>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <div><strong>Endereço</strong><span id="infoAddress"></span></div>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <div><strong>Telefone</strong><span id="infoPhone"></span></div>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              <div><strong>Horário de atendimento</strong><span id="infoHours"></span></div>
+            </li>
+          </ul>
+
+          <div class="card contact-actions reveal">
+            <h3>Fale com a loja</h3>
+            <p>Escolha como prefere ser atendido.</p>
+            <a class="btn btn--whatsapp btn--block" data-wa="general" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversar no WhatsApp
+            </a>
+            <a class="btn btn--outline btn--block" data-wa="visit" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Agendar uma visita
+            </a>
+            <a class="btn btn--outline btn--block" id="mapsButton" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Abrir no Google Maps
+            </a>
+            <a class="btn btn--ghost btn--block" id="contactInstagram" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram da loja
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- I. FAQ -->
+    <section class="section" id="faq" aria-labelledby="faqTitle">
+      <div class="container container--narrow">
+        <header class="section__head reveal">
+          <p class="eyebrow">Dúvidas</p>
+          <h2 id="faqTitle">Perguntas frequentes</h2>
+        </header>
+
+        <div class="faq" id="faqList">
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq1" id="faq1btn">Como consultar as motos disponíveis?</button></h3>
+            <div class="faq__a" id="faq1" role="region" aria-labelledby="faq1btn" hidden>
+              <p>Navegue pelo catálogo desta página e use os filtros. Para confirmar disponibilidade e valores atualizados, fale com a loja pelo WhatsApp.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq2" id="faq2btn">Como agendar uma visita?</button></h3>
+            <div class="faq__a" id="faq2" role="region" aria-labelledby="faq2btn" hidden>
+              <p>Use o botão “Agendar uma visita” na seção de contato. Ele abre o WhatsApp com uma mensagem pronta para combinar dia e horário com a equipe.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq3" id="faq3btn">É possível financiar uma moto?</button></h3>
+            <div class="faq__a" id="faq3" role="region" aria-labelledby="faq3btn" hidden>
+              <p>As condições de financiamento dependem de análise e de cada instituição. Envie seu interesse pelo formulário ou fale com a loja para saber as opções disponíveis.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq4" id="faq4btn">A loja aceita motos na troca?</button></h3>
+            <div class="faq__a" id="faq4" role="region" aria-labelledby="faq4btn" hidden>
+              <p>Consulte a loja. Use o botão “Quero avaliar minha moto” para enviar os dados da sua moto e receber orientação da equipe.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq5" id="faq5btn">Como solicitar mais fotos?</button></h3>
+            <div class="faq__a" id="faq5" role="region" aria-labelledby="faq5btn" hidden>
+              <p>Em cada moto há o botão “Mais informações”, que abre o WhatsApp com um pedido de fotos e detalhes do modelo escolhido.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq6" id="faq6btn">Como falar com um consultor?</button></h3>
+            <div class="faq__a" id="faq6" role="region" aria-labelledby="faq6btn" hidden>
+              <p>Clique em qualquer botão do WhatsApp do site. A conversa abre com uma mensagem preenchida e você escolhe se quer enviar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- J. RODAPÉ -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/images/logo.png" alt="Caroli Motors" width="318" height="94" loading="lazy">
+        <p class="footer__muted">Atendimento direto pelo WhatsApp.</p>
+        <p class="footer__muted" id="footerAddress" hidden></p>
+      </div>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer__links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#veiculos">Motos</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="footer__social">
+        <a class="btn btn--outline btn--sm" id="footerInstagram" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+        <a class="btn btn--whatsapp btn--sm" data-wa="general" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+        <a class="footer__privacy" id="privacyLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Política de privacidade</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year">2026</span> Caroli Motors. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a class="wa-float" data-wa="general" href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Caroli Motors no WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/vehicles.js"></script>
+  <script src="js/clients.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
